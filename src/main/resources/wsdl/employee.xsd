@@ -26,13 +26,6 @@
 			<xs:attribute name="address" type="xs:string" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="EmployeeRequest">
-		<xs:complexType>
-			<xs:attribute name="id" type="xs:long" use="required"/>
-			<xs:attribute name="firstname" type="xs:string" use="optional"/>
-			<xs:attribute name="lastname" type="xs:string" use="optional"/>
-		</xs:complexType>
-	</xs:element>
 	<xs:element name="EmployeeResponse">
 		<xs:complexType>
 			<xs:sequence minOccurs="0">
@@ -49,7 +42,7 @@
 	</xs:element>
 	<xs:element name="EmployeeByIdRequest">
 		<xs:annotation>
-			<xs:documentation>Query an employee by Id</xs:documentation>
+			<xs:documentation>Query employee by Id</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:attribute name="id" type="xs:long" use="required"/>
