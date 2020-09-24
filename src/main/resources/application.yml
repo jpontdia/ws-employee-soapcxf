@@ -1,0 +1,15 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com:
+      jpworks:
+        datajdbc: DEBUG
+
+spring:
+  profiles:
+    active: local
