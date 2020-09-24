@@ -19,6 +19,10 @@ Next is the WSDL diagram:
 ![WSDL Diagram](/doc/wsdl-diagram.png)
 
 Next is the XSD schema:
-![XSD Schema](/doc/xsd-diagram.png)
+![XSD Schema](/doc/xsd-employeesresponse.png)
+
+![XSD Schema](/doc/xsd-employeebynamerequest.png)
+
+![XSD Schema](/doc/xsd-employeebyidrequest.png)
 
 The wsdl file [definition](/src/main/resources/wsdl/EmployeeServices.wsdl)
