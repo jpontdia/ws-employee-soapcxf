@@ -16,7 +16,7 @@ public class SoapTests {
     private EmployeeEndpoint employeeEndpoint;
 
     @Test
-    public void contextLoads() throws Exception {
+    public void contextLoads(){
         assertThat(employeeEndpoint).isNotNull();
     }
 }
