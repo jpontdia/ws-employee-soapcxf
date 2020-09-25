@@ -1,4 +1,4 @@
-package com.jpworks.datajdbc;
+package com.jpworks.datajdbc.configuration;
 
 import com.jpworks.datajdbc.service.EmployeeEndpoint;
 import org.apache.cxf.Bus;
