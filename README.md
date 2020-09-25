@@ -1,4 +1,4 @@
-# ws-employee-soap
+# SOAP Microservices with Spring Boot and Apache CXF
 *Soap endpoint for ws-employee*
 
 Spring Boot Microservices and AWS Cloud development 
