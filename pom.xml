@@ -15,6 +15,12 @@
 	<description>Employee SOAP Services. SOAP Microservice Facacade for ws-employee</description>
 
 	<properties>
+		<!-- Override BOM property in Spring Boot for Rest Assured and Groovy-->
+		<!-- With rest-assured 4.3.X upgrade the Groovy from 2.5.7 to 3.0.2 -->
+		<rest-assured.version>4.3.1</rest-assured.version>
+		<groovy.version>3.0.2</groovy.version>
+
+		<!-- Other properties-->
 		<java.version>14</java.version>
 		<cxf.version>3.4.0</cxf.version>
 		<springboot.version>2.3.3.RELEASE</springboot.version>
@@ -60,6 +66,12 @@
 		    <version>${cxf.version}</version>    
 		</dependency>
 
+		<!-- Testing -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

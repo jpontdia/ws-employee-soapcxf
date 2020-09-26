@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://www.jpworks.com/employee">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <emp:EmployeeByIdRequest id="1"/>
+    </soapenv:Body>
+</soapenv:Envelope>
