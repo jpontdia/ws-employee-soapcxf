@@ -34,7 +34,7 @@ In order to run the project type in root folder:
 mvn spring-boot:run
 ```
 
-The list of services are avialable under:
+The list of services are available under:
 ```html
 http://localhost:8081/soap
 ```
