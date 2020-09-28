@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jpworks</groupId>
-	<artifactId>ws-employee-soap</artifactId>
+	<artifactId>ws-employee-soapcxf</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>employee soap services</name>
-	<description>Employee SOAP Services. SOAP Microservice Facacade for ws-employee</description>
+	<description>SOAP Microservices with Spring Boot 2.3 and Apache CXF 3.4</description>
 
 	<properties>
 		<!-- Override BOM property in Spring Boot for Rest Assured and Groovy-->
