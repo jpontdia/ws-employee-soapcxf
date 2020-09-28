@@ -9,7 +9,7 @@ The tech stack for this POC is:
 * Apache CXF 3.4
 * AWS Platform: ECR, ECS, Fargate
  
-## Local environment requirements
+## Requirements
 * Java 14 JDK - https://openjdk.java.net/projects/jdk/14/
 * Maven - https://maven.apache.org/download.cgi
 * Docker - https://www.docker.com/products/docker-desktop
@@ -27,13 +27,15 @@ Next is the XSD schema:
 
 The wsdl file [definition](/src/main/resources/wsdl/EmployeeServices.wsdl)
 
-## Usage
+## Installation and build
 
+Make sure your computers is configured with the tools in the requirements section.
 In order to run the project type in root folder:
 ```bash
 mvn spring-boot:run
 ```
 
+## Usage
 The list of services are available under:
 ```html
 http://localhost:8081/soap
