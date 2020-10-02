@@ -125,7 +125,7 @@ Test image locally
 docker run -p $EXPOSED_PORT:$INTERNAL_APPLICATION_PORT $REPOSITORY
 ```
 Where:
-* $EXPOSED_PORT is the port visible on your machine
+* $EXPOSED_PORT is the port visible for other applications on your machine
 * $INTERNAL_APPLICATION_PORT is the port configured in the [application.yml](/src/main/resources/application.yml)
 
 Example:
