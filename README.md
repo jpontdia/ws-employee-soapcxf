@@ -1,7 +1,5 @@
 # SOAP Microservices with Spring Boot and Apache CXF
-*Soap endpoint for ws-employee*
-
-Spring Boot Microservices and AWS Cloud development 
+*A docker container created with Spring Boot,exposing a SOAP endpoint for legacy clients*
 
 The tech stack for this POC is:
 * Spring Boot 2.3.4
@@ -17,38 +15,38 @@ The tech stack for this POC is:
 * Docker - https://www.docker.com/products/docker-desktop
 * Docker hub account with token access enabled
 
-Go to my Java Windows Installation Cheat Sheet ![T.B.D](https://github.com/jpontdia/ws-employee)
-
 ## WSDL and XSD
-Next is the WSDL diagram:
+
+TBD....
+
+WSDL diagram:
 ![WSDL Diagram](/doc/wsdl-diagram.png)
 
-Next is the XSD schema:
+XSD schema for the service:
 ![XSD Schema](/doc/xsd-employeesresponse.png)
 
 ![XSD Schema](/doc/xsd-employeebynamerequest.png)
 
 ![XSD Schema](/doc/xsd-employeebyidrequest.png)
 
-The wsdl file [definition](/src/main/resources/wsdl/EmployeeServices.wsdl)
+The wsdl file definition is [here](/src/main/resources/wsdl/EmployeeServices.wsdl)
 
-## Installation and build
+## Installation
 
-Make sure your computer is configured with the tools in the requirements section.
+Make sure your computer is properly configured with the tools described in the requirements section.
 
 In order to run the project type in project root folder:
 ```bash
 mvn spring-boot:run
 ```
 
-Build
 ## Usage
-The list of services are available under:
+The list of services is available under:
 ```html
 http://localhost:8081/soap
 ```
 
-The employee wsdl file is here:
+The employee wsdl can be found here:
 ```html
 http://localhost:8081/soap/service/employee?wsdl
 ```
