@@ -120,6 +120,42 @@ jpontdia/ws-employee-soapcxf   latest                    c2b63024196e        19 
 adoptopenjdk/openjdk15         x86_64-alpine-jre-15_36   edc28ff1032d        9 days ago          192MB
 ```
 
+Test image locally
+```bash
+docker run -p $EXPOSED_PORT:$INTERNAL_APPLICATION_PORT $REPOSITORY
+```
+Where:
+* $EXPOSED_PORT is the port visible on your machine
+* $INTERNAL_APPLICATION_PORT is the port configured in the [application.yml](/src/main/resources/application.yml)
+
+Example:
+```bash
+C:\workspace\dev\datajdbc\ws-employee-soapcxf>docker run -p 8081:8081 jpontdia/ws-employee-soapcxf
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2020-10-02 22:23:49.563  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Starting MainApplication v1.0.1-SNAPSHOT on b6e50b2f461b with PID 1 (/app.jar started by root in /)
+2020-10-02 22:23:49.572 DEBUG 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-02 22:23:49.573  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : The following profiles are active: local
+2020-10-02 22:23:51.163  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-10-02 22:23:51.179  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-02 22:23:51.179  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-02 22:23:51.254  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-02 22:23:51.255  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1625 ms
+2020-10-02 22:23:51.541  INFO 1 --- [           main] o.s.boot.web.servlet.RegistrationBean    : Servlet CXFServlet was not registered (possibly already registered?)
+2020-10-02 22:23:51.885  INFO 1 --- [           main] o.a.c.w.s.f.ReflectionServiceFactoryBean : Creating Service {http://service.datajdbc.jpworks.com/}EmployeeEndpointService from class com.jpworks.employee.EmployeeService
+2020-10-02 22:23:52.455  INFO 1 --- [           main] org.apache.cxf.endpoint.ServerImpl       : Setting the server's publish address to be /service/employee
+2020-10-02 22:23:52.646  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-02 22:23:52.870  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-10-02 22:23:52.889  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Started MainApplication in 4.018 seconds (JVM running for 4.625)
+```
+
 Push image to Docker Hub
 ```bash
 docker push $REPOSITORY
