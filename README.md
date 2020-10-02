@@ -55,8 +55,8 @@ http://localhost:8081/soap/service/employee?wsdl
 
 A Docker Hub account is needed for this example. We are going to use the next values for my personal Docker account:
 
-Account ($ACCOUNT): jpontdia 
-Repository ($REPOSITORY): jpontdia/ws-employee-soapcxf 
+* Account ($ACCOUNT): jpontdia 
+* Repository ($REPOSITORY): jpontdia/ws-employee-soapcxf 
 
 Create the jar file of the service with maven:
 ```bash
