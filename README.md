@@ -52,14 +52,20 @@ http://localhost:8081/soap/service/employee?wsdl
 ```
 
 ## Docker Image
-Create the jar file of the service:
+
+A Docker Hub account is needed for this example. We are going to use the next values for my personal Docker account:
+
+Account ($ACCOUNT): jpontdia 
+Repository ($REPOSITORY): jpontdia/ws-employee-soapcxf 
+
+Create the jar file of the service with maven:
 ```bash
 mvn install
 ```
 
-Log in into your Docker Hub account ussing the access token:
+Log in into your Docker Hub account using your access token:
 ```bash
-docker login --username=YOUR_ACCOUNT
+docker login --username=$ACCOUNT
 ```
 
 Example:
@@ -71,10 +77,10 @@ Login Succeeded
 
 Create docker image
 ```bash
-docker build --build-arg JAR_FILE=target/*.jar --tag jpontdia/ws-employee-soapcxf .
+docker build --build-arg JAR_FILE=target/*.jar --tag $REPOSITORY .
 ```
 
-You should see the message: Successfully tagged jpontdia/ws-employee-soapcxf:latest. Example:
+Example:
 ```bash
 C:\workspace\dev\datajdbc\ws-employee-soapcxf>docker build --build-arg JAR_FILE=target/*.jar --tag jpontdia/ws-employee-soapcxf .
 Sending build context to Docker daemon  29.24MB
@@ -107,7 +113,7 @@ SECURITY WARNING: You are building a Docker image from Windows against a non-Win
 
 Verify the image was created correctly
 ```bash
-docker images
+C:\workspace\dev\datajdbc\ws-employee-soapcxf>docker images
 
 REPOSITORY                     TAG                       IMAGE ID            CREATED             SIZE
 jpontdia/ws-employee-soapcxf   latest                    c2b63024196e        19 minutes ago      221MB
@@ -115,7 +121,11 @@ adoptopenjdk/openjdk15         x86_64-alpine-jre-15_36   edc28ff1032d        9 d
 ```
 
 Push image to Docker Hub
+```bash
+docker push $REPOSITORY
+```
 
+Example:
 ```bash
 docker push jpontdia/ws-employee-soapcxf
 
@@ -125,12 +135,7 @@ a5988eef4f17: Pushed
 41eb7e916580: Mounted from adoptopenjdk/openjdk15
 50644c29ef5a: Mounted from jpontdia/ws-employee
 latest: digest: sha256:f414594938049532b74fff2bd3c63269c9322de5c83007d8b42a5f46f1b93ec6 size: 1163
-
 ```
-
-
-
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
