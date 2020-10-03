@@ -111,7 +111,7 @@ Successfully tagged jpontdia/ws-employee-soapcxf:latest
 SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 ```
 
-Verify the image was created correctly
+Verify the image was created correctly by running:
 ```bash
 C:\workspace\dev\datajdbc\ws-employee-soapcxf>docker images
 
