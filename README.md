@@ -63,7 +63,9 @@ Create the jar file of the service with maven:
 mvn install
 ```
 
-Log in into your Docker Hub account using your access token:
+Log in into your Docker Hub account using your access token,  
+[more information here](https://docs.docker.com/docker-hub/access-tokens/)
+
 ```bash
 docker login --username=$ACCOUNT
 ```
