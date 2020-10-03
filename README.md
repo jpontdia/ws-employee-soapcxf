@@ -53,7 +53,7 @@ http://localhost:8081/soap/service/employee?wsdl
 
 ## Docker Image
 
-A Docker Hub account is needed for this example. We are going to use the next values for my personal Docker account:
+A Docker Hub account is required to publish the docker image into the registry. We are going to use the next values for my personal Docker account:
 
 * Account ($ACCOUNT): jpontdia 
 * Repository ($REPOSITORY): jpontdia/ws-employee-soapcxf 
