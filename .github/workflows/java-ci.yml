@@ -22,3 +22,13 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+      - name: push README to Dockerhub
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: jpontdia
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+        with:
+          destination_container_repo: jpontdia/ws-employee-soapcxf
+          provider: dockerhub
+          short_description: 'SOAP Microservices with Spring Boot and Apache CXF'
+          readme_file: 'README.md'
