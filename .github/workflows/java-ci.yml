@@ -31,4 +31,4 @@ jobs:
           destination_container_repo: jpontdia/ws-employee-soapcxf
           provider: dockerhub
           short_description: 'SOAP Microservices with Spring Boot and Apache CXF'
-          readme_file: 'README.md'
+          readme_file: 'docker-readme.md'
