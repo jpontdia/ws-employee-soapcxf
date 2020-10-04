@@ -8,7 +8,8 @@ The tech stack for this POC is:
 * REST Assured 4.3
 * Docker
  
-## Requirements
+## Software requirements
+Workstation must be properly configured with next tools:
 * Java 15 JDK - https://jdk.java.net/15/
 * Maven - https://maven.apache.org/download.cgi
 
@@ -16,19 +17,21 @@ The tech stack for this POC is:
 * Docker - https://www.docker.com/products/docker-desktop
 * Docker hub account with token access enabled
 
+
+
 ## WSDL and XSD
 
 TBD....
 
 WSDL diagram:
-![WSDL Diagram](/doc/wsdl-diagram.png)
+![WSDL Diagram](/assets/wsdl-diagram.png)
 
 XSD schema for the service:
-![XSD Schema](/doc/xsd-employeesresponse.png)
+![XSD Schema](/assets/xsd-employeesresponse.png)
 
-![XSD Schema](/doc/xsd-employeebynamerequest.png)
+![XSD Schema](/assets/xsd-employeebynamerequest.png)
 
-![XSD Schema](/doc/xsd-employeebyidrequest.png)
+![XSD Schema](/assets/xsd-employeebyidrequest.png)
 
 The wsdl file definition is [here](/src/main/resources/wsdl/EmployeeServices.wsdl)
 
@@ -86,6 +89,7 @@ docker build --build-arg JAR_FILE=target/*.jar --tag $REPOSITORY .
 Example:
 ```bash
 C:\workspace\dev\datajdbc\ws-employee-soapcxf>docker build --build-arg JAR_FILE=target/*.jar --tag jpontdia/ws-employee-soapcxf .
+
 Sending build context to Docker daemon  29.24MB
 Step 1/5 : FROM adoptopenjdk/openjdk15:x86_64-alpine-jre-15_36
 x86_64-alpine-jre-15_36: Pulling from adoptopenjdk/openjdk15
