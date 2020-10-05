@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Joaquin Ponte (Personal) -->
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.jpworks.com/employee" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmployeeService" targetNamespace="http://www.jpworks.com/employee">
-	<wsdl:documentation>SOAP Definition for ws-employee.
-	</wsdl:documentation>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				  xmlns:tns="http://www.jpworks.com/employee"
+				  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+				  name="EmployeeService" targetNamespace="http://www.jpworks.com/employee">
+	<wsdl:documentation>SOAP Definition for ws-employee</wsdl:documentation>
 	<wsdl:types>
 		<xsd:schema>
-			<xsd:import namespace="http://www.jpworks.com/employee" schemaLocation="employee.xsd">
-    		</xsd:import>
+			<xsd:import namespace="http://www.jpworks.com/employee" schemaLocation="employee.xsd"/>
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="EmployeeByIdRequest">
@@ -21,7 +22,7 @@
 	<wsdl:message name="EmployeesResponse">
 		<wsdl:part name="parameters" element="tns:EmployeesResponse"/>
 	</wsdl:message>
-	<wsdl:portType name="EmployeeService">
+	<wsdl:portType name="EmployeeServicePortType">
 		<wsdl:operation name="GetEmployeeById">
 			<wsdl:input message="tns:EmployeeByIdRequest"/>
 			<wsdl:output message="tns:EmployeeResponse"/>
@@ -31,7 +32,7 @@
 			<wsdl:output message="tns:EmployeesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="EmployeeServiceSOAP" type="tns:EmployeeService">
+	<wsdl:binding name="EmployeeServiceSOAP" type="tns:EmployeeServicePortType">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="GetEmployeeById">
 			<soap:operation soapAction="http://www.jpworks.com/employee/GetEmployeeById"/>

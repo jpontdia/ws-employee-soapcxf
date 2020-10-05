@@ -6,7 +6,7 @@ import com.jpworks.employee.*;
 
 @Service
 @Slf4j
-public class EmployeeEndpoint implements EmployeeService{
+public class EmployeeEndpoint implements EmployeeServicePortType{
 
     BackendService backendService;
 

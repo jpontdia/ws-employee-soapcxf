@@ -19,14 +19,15 @@ Workstation must be properly configured with next tools:
 
 
 
-## WSDL and XSD
-
-TBD....
+## WSDL and Domain Model
+In our example, we are going to work in a fictitious Employee  SOAP service with 2 operations:
+* GetEmployeeById
+* GetEmployeeByName
 
 WSDL diagram:
 ![WSDL Diagram](/assets/wsdl-diagram.png)
 
-XSD schema for the service:
+Domain Model (XSD schema) and main response for the service:
 ![XSD Schema](/assets/xsd-employeesresponse.png)
 
 ![XSD Schema](/assets/xsd-employeebynamerequest.png)
