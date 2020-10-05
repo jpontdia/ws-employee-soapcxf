@@ -10,6 +10,11 @@ logging:
       jpworks:
         datajdbc: DEBUG
 
+#By default the path for cxf is: /services
+cxf:
+  #Overriding the default path
+  path: /soap
+
 spring:
   profiles:
     active: local

@@ -1,11 +1,13 @@
 package com.jpworks.datajdbc.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.cxf.feature.Features;
 import org.springframework.stereotype.Service;
 import com.jpworks.employee.*;
 
 @Service
 @Slf4j
+@Features(features = "org.apache.cxf.ext.logging.LoggingFeature")
 public class EmployeeEndpoint implements EmployeeServicePortType{
 
     BackendService backendService;
