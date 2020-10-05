@@ -22,6 +22,8 @@
 	<wsdl:message name="EmployeesResponse">
 		<wsdl:part name="parameters" element="tns:EmployeesResponse"/>
 	</wsdl:message>
+
+	<!--This element defines the service operations and the combination of input and output elements to clients-->
 	<wsdl:portType name="EmployeeServicePortType">
 		<wsdl:operation name="GetEmployeeById">
 			<wsdl:input message="tns:EmployeeByIdRequest"/>
@@ -32,6 +34,8 @@
 			<wsdl:output message="tns:EmployeesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
+
+	<!-- This element provides specific details on how an operation will actually be transmitted over the network-->
 	<wsdl:binding name="EmployeeServiceSOAP" type="tns:EmployeeServicePortType">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="GetEmployeeById">
@@ -53,11 +57,11 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
+
+	<!-- Definition of the service and the endpoint. -->
 	<wsdl:service name="EmployeeService">
 		<wsdl:port name="EmployeeServiceSOAP" binding="tns:EmployeeServiceSOAP">
 			<soap:address location="the-url-service-goes-here"/>
 		</wsdl:port>
 	</wsdl:service>
-	<!-- This element provides specific details on how an operation will actually be transmitted over the network-->
-	<!-- Definition of the service and the endpoint. -->
 </wsdl:definitions>
