@@ -24,36 +24,109 @@ In our example, we are going to work in a fictitious Employee  SOAP service with
 * GetEmployeeById
 * GetEmployeeByName
 
-WSDL diagram:
-![WSDL Diagram](/assets/wsdl-diagram.png)
+For the demo, I separated the XSD from the WSDL. In a real scenario, this will be the most followed pattern but expect to have more than one XSD in different folders. The [employee.xsd](/src/main/resources/wsdl/employee.xsd) has the full domain model for the service, next diagram shows the main response sent back to the client
 
-Domain Model (XSD schema) and main response for the service:
-![XSD Schema](/assets/xsd-employeesresponse.png)
+![XSD Schema](/assets/xsd-employeesresponse.png?raw=true)
 
-![XSD Schema](/assets/xsd-employeebynamerequest.png)
+The WSDL is used for describing the functionality of the SOAP-based webservice. From all the sections in the WSDL file, the most important for us is the `wsdl:portType`. This section defines the interface for the service we want to implement: operations, input, and output parameters:
 
-![XSD Schema](/assets/xsd-employeebyidrequest.png)
+![portType diagram](https://github.com/jpontdia/ws-employee-soapcxf/blob/master/assets/porttype-diagram.png?raw=true)
 
-The wsdl file definition is [here](/src/main/resources/wsdl/EmployeeServices.wsdl)
+<a name="portType"></a>Next is the WSDL section for `wsdl:portType`:
+```xml
+<!--This element defines the service operations and the combination of input and output elements to clients-->
+<wsdl:portType name="EmployeeServicePortType">
+    <wsdl:operation name="GetEmployeeById">
+        <wsdl:input message="tns:EmployeeByIdRequest"/>
+        <wsdl:output message="tns:EmployeeResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByName">
+        <wsdl:input message="tns:EmployeeByNameRequest"/>
+        <wsdl:output message="tns:EmployeesResponse"/>
+    </wsdl:operation>
+</wsdl:portType>
+```
+The complete WSDL file is here: [EmployeeServices.wsdl](/src/main/resources/wsdl/EmployeeServices.wsdl)
 
 ## Installation
 
 Make sure your computer is properly configured with the tools described in the requirements section.
 
-In order to run the project type in project root folder:
+In order to run the project type in root folder:
 ```bash
 mvn spring-boot:run
 ```
 
+You will see in the log console:
+```windows
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2020-10-02 22:23:49.563  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Starting MainApplication v1.0.1-SNAPSHOT on b6e50b2f461b with PID 1 (/app.jar started by root in /)
+2020-10-02 22:23:49.572 DEBUG 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-02 22:23:49.573  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : The following profiles are active: local
+2020-10-02 22:23:51.163  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-10-02 22:23:51.179  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-02 22:23:51.179  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-02 22:23:51.254  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-02 22:23:51.255  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1625 ms
+2020-10-02 22:23:51.541  INFO 1 --- [           main] o.s.boot.web.servlet.RegistrationBean    : Servlet CXFServlet was not registered (possibly already registered?)
+2020-10-02 22:23:51.885  INFO 1 --- [           main] o.a.c.w.s.f.ReflectionServiceFactoryBean : Creating Service {http://service.datajdbc.jpworks.com/}EmployeeEndpointService from class com.jpworks.employee.EmployeeService
+2020-10-02 22:23:52.455  INFO 1 --- [           main] org.apache.cxf.endpoint.ServerImpl       : Setting the server's publish address to be /service/employee
+2020-10-02 22:23:52.646  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-02 22:23:52.870  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-10-02 22:23:52.889  INFO 1 --- [           main] com.jpworks.datajdbc.MainApplication     : Started MainApplication in 4.018 seconds (JVM running for 4.625)
+```
+
 ## Usage
-The list of services is available under:
+To get the available endpoints, write in the browser:
 ```html
 http://localhost:8081/soap
 ```
+![services](https://github.com/jpontdia/ws-employee-soapcxf/blob/master/assets/services-list.png?raw=true)
 
-The employee wsdl can be found here:
+To get the wsdl of the service, write in the browser:
 ```html
 http://localhost:8081/soap/service/employee?wsdl
+```
+![services](/assets/wsdl-generation.png)
+
+We can test the application using an Http Client like PostMan or Jmeter using a POST call (the application uses for the test cases RestAssured library). But I am going to use the traditional SoapUI, the endpoint for the service is: `http://localhost:8081/soap/service/employee`
+
+![services](/assets/soapui.png)
+```windows
+2020-10-06 15:36:01.396  INFO 102696 --- [           main] com.jpworks.datajdbc.MainApplication     : Started MainApplication in 3.104 seconds (JVM running for 3.988)
+2020-10-06 15:36:23.958  INFO 102696 --- [nio-8081-exec-1] o.a.c.s.EmployeeServicePortType.REQ_IN   : REQ_IN
+    Address: http://localhost:8081/soap/service/employee
+    HttpMethod: POST
+    Content-Type: text/xml;charset=UTF-8
+    ExchangeId: 872e1281-4545-45ad-9871-331d96c450cf
+    ServiceName: EmployeeEndpointService
+    PortName: EmployeeEndpointPort
+    PortTypeName: EmployeeServicePortType
+    Headers: {SOAPAction="http://www.jpworks.com/employee/GetEmployeesByName", host=localhost:8081, connection=Keep-Alive, content-type=text/xml;charset=UTF-8, Content-Length=273, accept-encoding=gzip,deflate, user-agent=Apache-HttpClient/4.5.5 (Java/12.0.1)}
+    Payload: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://www.jpworks.com/employee">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <emp:EmployeeByNameRequest firstname="John" lastname="Miller"/>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+2020-10-06 15:36:23.995  INFO 102696 --- [nio-8081-exec-1] o.a.c.s.E.RESP_OUT                       : RESP_OUT
+    Address: http://localhost:8081/soap/service/employee
+    Content-Type: text/xml
+    ResponseCode: 200
+    ExchangeId: 872e1281-4545-45ad-9871-331d96c450cf
+    ServiceName: EmployeeEndpointService
+    PortName: EmployeeEndpointPort
+    PortTypeName: EmployeeServicePortType
+    Headers: {}
+    Payload: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><EmployeesResponse xmlns="http://www.jpworks.com/employee"><employee id="1" firstname="Jeffery" lastname="Lewis" birthdate="2000-01-01" gender="M"/><employee id="2" firstname="Francis" lastname="Stevens" birthdate="1999-01-01" gender="M"/></EmployeesResponse></soap:Body></soap:Envelope>
 ```
 
 ## Docker Image
